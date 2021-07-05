@@ -1,0 +1,23 @@
+COLUMN TABLE "0TCT_CA1" (
+    "0TCTIFPROV" VARCHAR(45) COMMENT 'Used InfoProviders',
+    "0TCTBIOBJCT" VARCHAR(45) COMMENT 'BI Application',
+    "0TCTBISBOBJ" VARCHAR(45) COMMENT 'BI Application Object',
+    "0TCTBIOTYPE" VARCHAR(4) COMMENT 'BI Application Type',
+    "0TCTBISOTYP" VARCHAR(4) COMMENT 'BI Application Object Type',
+    "0TCTIFTYPE" VARCHAR(4) COMMENT 'InfoProvider Type',
+    "0TCTINITFLG" VARCHAR(1) COMMENT 'Initialization / Navigation Flag',
+    "0TCTOBJVERS" VARCHAR(1) COMMENT 'Object Version',
+    "0TCTOLAP_DM" VARCHAR(2) COMMENT 'Olap cache/DM/BWA access flag',
+    "0TCTSYSID" VARCHAR(10) COMMENT 'BW System',
+    "0TCTUSERNM" VARCHAR(12) COMMENT 'User',
+    "0CALDAY" VARCHAR(8) COMMENT 'Calendar day',
+    "0TCTNOCELL" BIGINT COMMENT 'Number of cells',
+    "0TCTQUCOUNT" INTEGER COMMENT 'Counter for BI Application Objects',
+    "0TCTTIMEALL" DECIMAL(17) COMMENT 'Total time',
+    "0TCTTIMEDM" DECIMAL(17) COMMENT 'Time recorded for DataManager',
+    "0TCTTIMEFE" DECIMAL(17) COMMENT 'Time recorded on front-end side',
+    "0TCTTIMENA" DECIMAL(17) COMMENT 'Time not assigned to front-end, OLAP or DataManager',
+    "0TCTTMEOLAP" DECIMAL(17) COMMENT 'Time recorded for OLAP',
+    "0TCTTMEPLAN" DECIMAL(17) COMMENT 'Time recorded for Planning',
+    "0TCTWTCOUNT" INTEGER COMMENT 'Counter for BI Applications'
+) COMMENT 'Query usage stat'

@@ -1,0 +1,846 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" id="BI_Statistics" applyPrivilegeType="NONE" dataCategory="CUBE" schemaVersion="3.0" cacheInvalidationPeriod="NONE" enforceSqlExecution="false">
+<descriptions defaultDescription="BI_Statistics"/>
+<localVariables/>
+<variableMappings/>
+<dataSources>
+  <DataSource id="0TCT_C03">
+    <resourceUri>0TCT_C03</resourceUri>
+  </DataSource>
+  <DataSource id="0TCT_C22">
+    <resourceUri>0TCT_C22</resourceUri>
+  </DataSource>
+  <DataSource id="0TCT_C23">
+    <resourceUri>0TCT_C23</resourceUri>
+  </DataSource>
+  <DataSource id="0TCT_C25">
+    <resourceUri>0TCT_C25</resourceUri>
+  </DataSource>
+  <DataSource id="0TCT_CA1">
+    <resourceUri>0TCT_CA1</resourceUri>
+  </DataSource>
+  <DataSource id="DIM_BI_Objects">
+    <resourceUri>DIM_BI_Objects</resourceUri>
+  </DataSource>
+</dataSources>
+<calculationViews>
+  <calculationView xsi:type="Calculation:UnionView" id="Union_1">
+    <viewAttributes>
+      <viewAttribute id="0TCTDMUID"/>
+      <viewAttribute id="0TCTBWOBJCT"/>
+      <viewAttribute id="0TCTUSERNM"/>
+      <viewAttribute id="0TCTSYSID"/>
+      <viewAttribute id="0TCTBWTYPE"/>
+      <viewAttribute id="0TCTOBJVERS"/>
+      <viewAttribute id="0TCTDMCNT"/>
+      <viewAttribute id="0CALDAY"/>
+      <viewAttribute id="0TCTNDBSEL" aggregationType="sum"/>
+      <viewAttribute id="0TCTNDBTRA" aggregationType="sum"/>
+      <viewAttribute id="0TCTTDMHIER" aggregationType="sum"/>
+      <viewAttribute id="0TCTTDMNAVA" aggregationType="sum"/>
+      <viewAttribute id="0TCTTDMPOST" aggregationType="sum"/>
+      <viewAttribute id="0TCTTDMPREP" aggregationType="sum"/>
+      <viewAttribute id="0TCTTDMREAD" aggregationType="sum"/>
+      <viewAttribute id="0TCTTDMSID" aggregationType="sum"/>
+      <viewAttribute id="0TCTBISBOBJ"/>
+      <viewAttribute id="0TCTBIOTYPE"/>
+      <viewAttribute id="0TCTBISOTYP"/>
+      <viewAttribute id="0TCTINITFLG"/>
+      <viewAttribute id="0TCTOLAP_DM"/>
+      <viewAttribute id="0TCTNOCELL" aggregationType="sum"/>
+      <viewAttribute id="0TCTQUCOUNT" aggregationType="sum"/>
+      <viewAttribute id="0TCTTIMEALL" aggregationType="sum"/>
+      <viewAttribute id="0TCTTIMEDM" aggregationType="sum"/>
+      <viewAttribute id="0TCTTIMEFE" aggregationType="sum"/>
+      <viewAttribute id="0TCTTIMENA" aggregationType="sum"/>
+      <viewAttribute id="0TCTTMEOLAP" aggregationType="sum"/>
+      <viewAttribute id="0TCTTMEPLAN" aggregationType="sum"/>
+      <viewAttribute id="0TCTWTCOUNT" aggregationType="sum"/>
+      <viewAttribute id="0TCTBIOBJCT"/>
+      <viewAttribute id="0TCTDURTION" aggregationType="sum"/>
+      <viewAttribute id="0TCTENDRECS" aggregationType="sum"/>
+      <viewAttribute id="0TCTENDSIZE" aggregationType="sum"/>
+      <viewAttribute id="0TCTDTCLASS"/>
+      <viewAttribute id="0TCTDVCLASS"/>
+      <viewAttribute id="0TCTTABCAT"/>
+      <viewAttribute id="0TCTAPPL"/>
+      <viewAttribute id="0TCTDBSIZE" aggregationType="sum"/>
+      <viewAttribute id="0TCTLOGSIZE" aggregationType="sum"/>
+      <viewAttribute id="0TCTNOTAB" aggregationType="sum"/>
+      <viewAttribute id="0TCTNUMREC" aggregationType="sum"/>
+      <viewAttribute id="0TCTTBLWID" aggregationType="sum"/>
+      <viewAttribute id="0TCTSOURCE"/>
+      <viewAttribute id="0TCTSRCTYP"/>
+    
+      <viewAttribute datatype="VARCHAR" length="10" id="DATASOURCE"/>
+    
+      <viewAttribute id="0TCTTABNAME"/>
+      <viewAttribute id="0TCTBWOSTYP"/>
+      <viewAttribute id="0TCTSSYSID"/>
+      <viewAttribute id="0TCTAGPROV"/>
+      <viewAttribute id="0TCTPARPROV"/>
+      <viewAttribute id="0TCTBWOTYPE"/>
+      <viewAttribute id="0TCTPARTYPE"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="0TCT_C03" emptyUnionBehavior="NO_ROW">
+      <mapping xsi:type="Calculation:AttributeMapping" target="0TCTDMUID" source="0TCTDMUID"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="0TCTBWOBJCT" source="0TCTIFPROV"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="0TCTUSERNM" source="0TCTUSERNM"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="0TCTSYSID" source="0TCTSYSID"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="0TCTBWTYPE" source="0TCTIFTYPE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="0TCTOBJVERS" source="0TCTOBJVERS"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="0TCTDMCNT" source="0TCTDMCNT"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="0CALDAY" source="0CALDAY"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="0TCTNDBSEL" source="0TCTNDBSEL"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="0TCTNDBTRA" source="0TCTNDBTRA"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="0TCTTDMHIER" source="0TCTTDMHIER"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="0TCTTDMNAVA" source="0TCTTDMNAVA"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="0TCTTDMPOST" source="0TCTTDMPOST"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="0TCTTDMPREP" source="0TCTTDMPREP"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="0TCTTDMREAD" source="0TCTTDMREAD"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="0TCTTDMSID" source="0TCTTDMSID"/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="0TCTBISBOBJ" null="true" value=""/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="0TCTBIOTYPE" null="true" value=""/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="0TCTBISOTYP" null="true" value=""/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="0TCTINITFLG" null="true" value=""/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="0TCTOLAP_DM" null="true" value=""/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="0TCTNOCELL" null="false" value="0"/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="0TCTQUCOUNT" null="false" value="0"/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="0TCTTIMEALL" null="false" value="0"/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="0TCTTIMEDM" null="false" value="0"/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="0TCTTIMEFE" null="false" value="0"/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="0TCTTIMENA" null="false" value="0"/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="0TCTTMEOLAP" null="false" value="0"/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="0TCTTMEPLAN" null="false" value="0"/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="0TCTWTCOUNT" null="false" value="0"/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="0TCTBIOBJCT" null="true" value=""/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="0TCTDURTION" null="false" value="0"/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="0TCTENDRECS" null="false" value="0"/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="0TCTENDSIZE" null="false" value="0"/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="0TCTDTCLASS" null="true" value=""/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="0TCTDVCLASS" null="true" value=""/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="0TCTTABCAT" null="true" value=""/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="0TCTAPPL" null="true" value=""/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="0TCTDBSIZE" null="false" value="0"/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="0TCTLOGSIZE" null="false" value="0"/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="0TCTNOTAB" null="false" value="0"/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="0TCTNUMREC" null="false" value="0"/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="0TCTTBLWID" null="true" value=""/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="0TCTSOURCE" null="true" value=""/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="0TCTSRCTYP" null="true" value=""/>
+    
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="DATASOURCE" null="false" value="0TCT_C03"/>
+    
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="0TCTTABNAME" null="true" value=""/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="0TCTBWOSTYP" null="true" value=""/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="0TCTSSYSID" null="true" value=""/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="0TCTAGPROV" source="0TCTAGPROV"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="0TCTPARPROV" source="0TCTPARPROV"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="0TCTBWOTYPE" source="0TCTBWOTYPE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="0TCTPARTYPE" source="0TCTPARTYPE"/>
+    </input>
+    <input node="0TCT_C22" emptyUnionBehavior="NO_ROW">
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="0TCTDMUID" null="true" value=""/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="0TCTBWOBJCT" source="0TCTTARGET"/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="0TCTUSERNM" null="true" value=""/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="0TCTSYSID" source="0TCTSYSID"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="0TCTBWTYPE" source="0TCTTRGTYPE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="0TCTOBJVERS" source="0TCTOBJVERS"/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="0TCTDMCNT" null="true" value=""/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="0CALDAY" source="0CALDAY"/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="0TCTNDBSEL" null="false" value="0"/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="0TCTNDBTRA" null="false" value="0"/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="0TCTTDMHIER" null="false" value="0"/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="0TCTTDMNAVA" null="false" value="0"/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="0TCTTDMPOST" null="false" value="0"/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="0TCTTDMPREP" null="false" value="0"/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="0TCTTDMREAD" null="false" value="0"/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="0TCTTDMSID" null="false" value="0"/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="0TCTBISBOBJ" null="true" value=""/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="0TCTBIOTYPE" null="true" value=""/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="0TCTBISOTYP" null="true" value=""/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="0TCTINITFLG" null="true" value=""/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="0TCTOLAP_DM" null="true" value=""/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="0TCTNOCELL" null="false" value="0"/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="0TCTQUCOUNT" null="false" value="0"/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="0TCTTIMEALL" null="false" value="0"/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="0TCTTIMEDM" null="false" value="0"/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="0TCTTIMEFE" null="false" value="0"/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="0TCTTIMENA" null="false" value="0"/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="0TCTTMEOLAP" null="false" value="0"/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="0TCTTMEPLAN" null="false" value="0"/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="0TCTWTCOUNT" null="false" value="0"/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="0TCTBIOBJCT" null="true" value=""/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="0TCTDURTION" source="0TCTDURTION"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="0TCTENDRECS" source="0TCTENDRECS"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="0TCTENDSIZE" source="0TCTENDSIZE"/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="0TCTDTCLASS" null="true" value=""/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="0TCTDVCLASS" null="true" value=""/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="0TCTTABCAT" null="true" value=""/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="0TCTAPPL" null="true" value=""/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="0TCTDBSIZE" null="false" value="0"/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="0TCTLOGSIZE" null="false" value="0"/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="0TCTNOTAB" null="false" value="0"/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="0TCTNUMREC" null="false" value="0"/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="0TCTTBLWID" null="true" value=""/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="0TCTSOURCE" source="0TCTSOURCE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="0TCTSRCTYP" source="0TCTSRCTYP"/>
+    
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="DATASOURCE" null="false" value="0TCT_C22"/>
+    
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="0TCTTABNAME" null="true" value=""/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="0TCTBWOSTYP" null="true" value=""/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="0TCTSSYSID" null="true" value=""/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="0TCTAGPROV" null="true" value=""/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="0TCTPARPROV" null="true" value=""/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="0TCTBWOTYPE" null="true" value=""/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="0TCTPARTYPE" null="true" value=""/>
+    </input>
+    <input node="0TCT_C23" emptyUnionBehavior="NO_ROW">
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="0TCTDMUID" null="true" value=""/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="0TCTBWOBJCT" source="0TCTTARGET"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="0TCTUSERNM" source="0TCTUSERNM"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="0TCTSYSID" source="0TCTSYSID"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="0TCTBWTYPE" source="0TCTTRGTYPE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="0TCTOBJVERS" source="0TCTOBJVERS"/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="0TCTDMCNT" null="true" value=""/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="0CALDAY" source="0CALDAY"/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="0TCTNDBSEL" null="false" value="0"/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="0TCTNDBTRA" null="false" value="0"/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="0TCTTDMHIER" null="false" value="0"/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="0TCTTDMNAVA" null="false" value="0"/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="0TCTTDMPOST" null="false" value="0"/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="0TCTTDMPREP" null="false" value="0"/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="0TCTTDMREAD" null="false" value="0"/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="0TCTTDMSID" null="false" value="0"/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="0TCTBISBOBJ" null="true" value=""/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="0TCTBIOTYPE" null="true" value=""/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="0TCTBISOTYP" null="true" value=""/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="0TCTINITFLG" null="true" value=""/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="0TCTOLAP_DM" null="true" value=""/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="0TCTNOCELL" null="false" value="0"/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="0TCTQUCOUNT" null="false" value="0"/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="0TCTTIMEALL" null="false" value="0"/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="0TCTTIMEDM" null="false" value="0"/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="0TCTTIMEFE" null="false" value="0"/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="0TCTTIMENA" null="false" value="0"/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="0TCTTMEOLAP" null="false" value="0"/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="0TCTTMEPLAN" null="false" value="0"/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="0TCTWTCOUNT" null="false" value="0"/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="0TCTBIOBJCT" null="true" value=""/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="0TCTDURTION" source="0TCTDURTION"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="0TCTENDRECS" source="0TCTRECORDS"/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="0TCTENDSIZE" null="false" value="0"/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="0TCTDTCLASS" null="true" value=""/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="0TCTDVCLASS" null="true" value=""/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="0TCTTABCAT" null="true" value=""/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="0TCTAPPL" null="true" value=""/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="0TCTDBSIZE" null="false" value="0"/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="0TCTLOGSIZE" null="false" value="0"/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="0TCTNOTAB" null="false" value="0"/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="0TCTNUMREC" null="false" value="0"/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="0TCTTBLWID" null="true" value=""/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="0TCTSOURCE" source="0TCTSOURCE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="0TCTSRCTYP" source="0TCTSRCTYP"/>
+    
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="DATASOURCE" null="false" value="0TCT_C23"/>
+    
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="0TCTTABNAME" null="true" value=""/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="0TCTBWOSTYP" null="true" value=""/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="0TCTSSYSID" null="true" value=""/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="0TCTAGPROV" null="true" value=""/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="0TCTPARPROV" null="true" value=""/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="0TCTBWOTYPE" null="true" value=""/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="0TCTPARTYPE" null="true" value=""/>
+    </input>
+    <input node="0TCT_C25" emptyUnionBehavior="NO_ROW">
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="0TCTDMUID" null="true" value=""/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="0TCTBWOBJCT" source="0TCTBWOBJCT"/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="0TCTUSERNM" null="true" value=""/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="0TCTSYSID" source="0TCTSYSID"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="0TCTBWTYPE" source="0TCTBWOTYPE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="0TCTOBJVERS" source="0TCTOBJVERS"/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="0TCTDMCNT" null="true" value=""/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="0CALDAY" source="0CALDAY"/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="0TCTNDBSEL" null="false" value="0"/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="0TCTNDBTRA" null="false" value="0"/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="0TCTTDMHIER" null="false" value="0"/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="0TCTTDMNAVA" null="false" value="0"/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="0TCTTDMPOST" null="false" value="0"/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="0TCTTDMPREP" null="false" value="0"/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="0TCTTDMREAD" null="false" value="0"/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="0TCTTDMSID" null="false" value="0"/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="0TCTBISBOBJ" null="true" value=""/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="0TCTBIOTYPE" null="true" value=""/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="0TCTBISOTYP" null="true" value=""/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="0TCTINITFLG" null="true" value=""/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="0TCTOLAP_DM" null="true" value=""/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="0TCTNOCELL" null="false" value="0"/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="0TCTQUCOUNT" null="false" value="0"/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="0TCTTIMEALL" null="false" value="0"/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="0TCTTIMEDM" null="false" value="0"/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="0TCTTIMEFE" null="false" value="0"/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="0TCTTIMENA" null="false" value="0"/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="0TCTTMEOLAP" null="false" value="0"/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="0TCTTMEPLAN" null="false" value="0"/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="0TCTWTCOUNT" null="false" value="0"/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="0TCTBIOBJCT" null="true" value=""/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="0TCTDURTION" null="false" value="0"/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="0TCTENDRECS" null="false" value="0"/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="0TCTENDSIZE" null="false" value="0"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="0TCTDTCLASS" source="0TCTDTCLASS"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="0TCTDVCLASS" source="0TCTDVCLASS"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="0TCTTABCAT" source="0TCTTABCAT"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="0TCTAPPL" source="0TCTAPPL"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="0TCTDBSIZE" source="0TCTDBSIZE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="0TCTLOGSIZE" source="0TCTLOGSIZE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="0TCTNOTAB" source="0TCTNOTAB"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="0TCTNUMREC" source="0TCTNUMREC"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="0TCTTBLWID" source="0TCTTBLWID"/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="0TCTSOURCE" null="true" value=""/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="0TCTSRCTYP" null="true" value=""/>
+    
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="DATASOURCE" null="false" value="0TCT_C25"/>
+    
+      <mapping xsi:type="Calculation:AttributeMapping" target="0TCTTABNAME" source="0TCTTABNAME"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="0TCTBWOSTYP" source="0TCTBWOSTYP"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="0TCTSSYSID" source="0TCTSSYSID"/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="0TCTAGPROV" null="true" value=""/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="0TCTPARPROV" null="true" value=""/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="0TCTBWOTYPE" null="true" value=""/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="0TCTPARTYPE" null="true" value=""/>
+    </input>
+    <input node="0TCT_CA1" emptyUnionBehavior="NO_ROW">
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="0TCTDMUID" null="true" value=""/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="0TCTBWOBJCT" source="0TCTIFPROV"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="0TCTUSERNM" source="0TCTUSERNM"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="0TCTSYSID" source="0TCTSYSID"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="0TCTBWTYPE" source="0TCTIFTYPE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="0TCTOBJVERS" source="0TCTOBJVERS"/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="0TCTDMCNT" null="true" value=""/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="0CALDAY" source="0CALDAY"/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="0TCTNDBSEL" null="false" value="0"/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="0TCTNDBTRA" null="false" value="0"/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="0TCTTDMHIER" null="false" value="0"/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="0TCTTDMNAVA" null="false" value="0"/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="0TCTTDMPOST" null="false" value="0"/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="0TCTTDMPREP" null="false" value="0"/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="0TCTTDMREAD" null="false" value="0"/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="0TCTTDMSID" null="false" value="0"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="0TCTBISBOBJ" source="0TCTBISBOBJ"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="0TCTBIOTYPE" source="0TCTBIOTYPE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="0TCTBISOTYP" source="0TCTBISOTYP"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="0TCTINITFLG" source="0TCTINITFLG"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="0TCTOLAP_DM" source="0TCTOLAP_DM"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="0TCTNOCELL" source="0TCTNOCELL"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="0TCTQUCOUNT" source="0TCTQUCOUNT"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="0TCTTIMEALL" source="0TCTTIMEALL"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="0TCTTIMEDM" source="0TCTTIMEDM"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="0TCTTIMEFE" source="0TCTTIMEFE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="0TCTTIMENA" source="0TCTTIMENA"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="0TCTTMEOLAP" source="0TCTTMEOLAP"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="0TCTTMEPLAN" source="0TCTTMEPLAN"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="0TCTWTCOUNT" source="0TCTWTCOUNT"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="0TCTBIOBJCT" source="0TCTBIOBJCT"/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="0TCTDURTION" null="false" value="0"/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="0TCTENDRECS" null="false" value="0"/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="0TCTENDSIZE" null="false" value="0"/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="0TCTDTCLASS" null="true" value=""/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="0TCTDVCLASS" null="true" value=""/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="0TCTTABCAT" null="true" value=""/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="0TCTAPPL" null="true" value=""/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="0TCTDBSIZE" null="false" value="0"/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="0TCTLOGSIZE" null="false" value="0"/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="0TCTNOTAB" null="false" value="0"/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="0TCTNUMREC" null="false" value="0"/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="0TCTTBLWID" null="true" value=""/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="0TCTSOURCE" null="true" value=""/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="0TCTSRCTYP" null="true" value=""/>
+    
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="DATASOURCE" null="false" value="0TCT_CA1"/>
+    
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="0TCTTABNAME" null="true" value=""/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="0TCTBWOSTYP" null="true" value=""/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="0TCTSSYSID" null="true" value=""/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="0TCTAGPROV" null="true" value=""/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="0TCTPARPROV" null="true" value=""/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="0TCTBWOTYPE" null="true" value=""/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="0TCTPARTYPE" null="true" value=""/>
+    </input>
+  </calculationView>
+  <calculationView xsi:type="Calculation:JoinView" id="Join_1" cardinality="CN_1" joinType="leftOuter">
+    <viewAttributes>
+      <viewAttribute id="0TCTDMUID"/>
+      <viewAttribute id="0TCTBWOBJCT"/>
+      <viewAttribute id="0TCTUSERNM"/>
+      <viewAttribute id="0TCTSYSID"/>
+      <viewAttribute id="0TCTBWTYPE"/>
+      <viewAttribute id="0TCTOBJVERS"/>
+      <viewAttribute id="0TCTDMCNT"/>
+      <viewAttribute id="0CALDAY"/>
+      <viewAttribute id="0TCTNDBSEL" aggregationType="sum"/>
+      <viewAttribute id="0TCTNDBTRA" aggregationType="sum"/>
+      <viewAttribute id="0TCTTDMHIER" aggregationType="sum"/>
+      <viewAttribute id="0TCTTDMNAVA" aggregationType="sum"/>
+      <viewAttribute id="0TCTTDMPOST" aggregationType="sum"/>
+      <viewAttribute id="0TCTTDMPREP" aggregationType="sum"/>
+      <viewAttribute id="0TCTTDMREAD" aggregationType="sum"/>
+      <viewAttribute id="0TCTTDMSID" aggregationType="sum"/>
+      <viewAttribute id="0TCTBISBOBJ"/>
+      <viewAttribute id="0TCTBIOTYPE"/>
+      <viewAttribute id="0TCTBISOTYP"/>
+      <viewAttribute id="0TCTINITFLG"/>
+      <viewAttribute id="0TCTOLAP_DM"/>
+      <viewAttribute id="0TCTNOCELL" aggregationType="sum"/>
+      <viewAttribute id="0TCTQUCOUNT" aggregationType="sum"/>
+      <viewAttribute id="0TCTTIMEALL" aggregationType="sum"/>
+      <viewAttribute id="0TCTTIMEDM" aggregationType="sum"/>
+      <viewAttribute id="0TCTTIMEFE" aggregationType="sum"/>
+      <viewAttribute id="0TCTTIMENA" aggregationType="sum"/>
+      <viewAttribute id="0TCTTMEOLAP" aggregationType="sum"/>
+      <viewAttribute id="0TCTTMEPLAN" aggregationType="sum"/>
+      <viewAttribute id="0TCTWTCOUNT" aggregationType="sum"/>
+      <viewAttribute id="0TCTBIOBJCT"/>
+      <viewAttribute id="0TCTDURTION" aggregationType="sum"/>
+      <viewAttribute id="0TCTENDRECS" aggregationType="sum"/>
+      <viewAttribute id="0TCTENDSIZE" aggregationType="sum"/>
+      <viewAttribute id="0TCTDTCLASS"/>
+      <viewAttribute id="0TCTDVCLASS"/>
+      <viewAttribute id="0TCTTABCAT"/>
+      <viewAttribute id="0TCTAPPL"/>
+      <viewAttribute id="0TCTDBSIZE" aggregationType="sum"/>
+      <viewAttribute id="0TCTLOGSIZE" aggregationType="sum"/>
+      <viewAttribute id="0TCTNOTAB" aggregationType="sum"/>
+      <viewAttribute id="0TCTNUMREC" aggregationType="sum"/>
+      <viewAttribute id="0TCTTBLWID" aggregationType="sum"/>
+      <viewAttribute id="0TCTSOURCE"/>
+      <viewAttribute id="0TCTSRCTYP"/>
+      <viewAttribute id="DATASOURCE"/>
+      <viewAttribute id="TCTCONTREL"/>
+      <viewAttribute id="TCTOWNER"/>
+      <viewAttribute id="TCTBCTSTMP"/>
+      <viewAttribute id="TCTTSTPNM"/>
+      <viewAttribute id="TCTLSTCHG"/>
+      <viewAttribute id="CB_BEX"/>
+      <viewAttribute id="CB_PAR_IA"/>
+      <viewAttribute id="CB_PAR_AC"/>
+      <viewAttribute id="BIOBJECT_TXTLG"/>
+    
+      <viewAttribute id="0TCTTABNAME"/>
+      <viewAttribute id="0TCTBWOSTYP"/>
+      <viewAttribute id="0TCTSSYSID"/>
+      <viewAttribute id="0TCTAGPROV"/>
+      <viewAttribute id="0TCTPARPROV"/>
+      <viewAttribute id="0TCTBWOTYPE"/>
+      <viewAttribute id="0TCTPARTYPE"/>
+    </viewAttributes>
+    <calculatedViewAttributes>
+      <calculatedViewAttribute id="PARENT_INFOAREA" datatype="VARCHAR" length="50" expressionLanguage="SQL">
+        <formula>IFNULL(&quot;CB_PAR_IA&quot;, 'INFOAREA_NOT_APPLICABLE')</formula>
+      </calculatedViewAttribute>
+    </calculatedViewAttributes>
+    <input node="Union_1">
+      <mapping xsi:type="Calculation:AttributeMapping" target="0TCTDMUID" source="0TCTDMUID"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="0TCTBWOBJCT" source="0TCTBWOBJCT"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="0TCTUSERNM" source="0TCTUSERNM"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="0TCTSYSID" source="0TCTSYSID"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="0TCTBWTYPE" source="0TCTBWTYPE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="0TCTOBJVERS" source="0TCTOBJVERS"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="0TCTDMCNT" source="0TCTDMCNT"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="0CALDAY" source="0CALDAY"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="0TCTNDBSEL" source="0TCTNDBSEL"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="0TCTNDBTRA" source="0TCTNDBTRA"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="0TCTTDMHIER" source="0TCTTDMHIER"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="0TCTTDMNAVA" source="0TCTTDMNAVA"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="0TCTTDMPOST" source="0TCTTDMPOST"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="0TCTTDMPREP" source="0TCTTDMPREP"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="0TCTTDMREAD" source="0TCTTDMREAD"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="0TCTTDMSID" source="0TCTTDMSID"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="0TCTBISBOBJ" source="0TCTBISBOBJ"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="0TCTBIOTYPE" source="0TCTBIOTYPE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="0TCTBISOTYP" source="0TCTBISOTYP"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="0TCTINITFLG" source="0TCTINITFLG"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="0TCTOLAP_DM" source="0TCTOLAP_DM"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="0TCTNOCELL" source="0TCTNOCELL"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="0TCTQUCOUNT" source="0TCTQUCOUNT"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="0TCTTIMEALL" source="0TCTTIMEALL"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="0TCTTIMEDM" source="0TCTTIMEDM"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="0TCTTIMEFE" source="0TCTTIMEFE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="0TCTTIMENA" source="0TCTTIMENA"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="0TCTTMEOLAP" source="0TCTTMEOLAP"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="0TCTTMEPLAN" source="0TCTTMEPLAN"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="0TCTWTCOUNT" source="0TCTWTCOUNT"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="0TCTBIOBJCT" source="0TCTBIOBJCT"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="0TCTDURTION" source="0TCTDURTION"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="0TCTENDRECS" source="0TCTENDRECS"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="0TCTENDSIZE" source="0TCTENDSIZE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="0TCTDTCLASS" source="0TCTDTCLASS"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="0TCTDVCLASS" source="0TCTDVCLASS"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="0TCTTABCAT" source="0TCTTABCAT"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="0TCTAPPL" source="0TCTAPPL"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="0TCTDBSIZE" source="0TCTDBSIZE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="0TCTLOGSIZE" source="0TCTLOGSIZE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="0TCTNOTAB" source="0TCTNOTAB"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="0TCTNUMREC" source="0TCTNUMREC"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="0TCTTBLWID" source="0TCTTBLWID"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="0TCTSOURCE" source="0TCTSOURCE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="0TCTSRCTYP" source="0TCTSRCTYP"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="DATASOURCE" source="DATASOURCE"/>
+    
+      <mapping xsi:type="Calculation:AttributeMapping" target="0TCTTABNAME" source="0TCTTABNAME"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="0TCTBWOSTYP" source="0TCTBWOSTYP"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="0TCTSSYSID" source="0TCTSSYSID"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="0TCTAGPROV" source="0TCTAGPROV"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="0TCTPARPROV" source="0TCTPARPROV"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="0TCTBWOTYPE" source="0TCTBWOTYPE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="0TCTPARTYPE" source="0TCTPARTYPE"/>
+    </input>
+    <input node="DIM_BI_Objects">
+      <mapping xsi:type="Calculation:AttributeMapping" target="TCTCONTREL" source="TCTCONTREL"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TCTOWNER" source="TCTOWNER"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TCTBCTSTMP" source="TCTBCTSTMP"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TCTTSTPNM" source="TCTTSTPNM"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TCTLSTCHG" source="TCTLSTCHG"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CB_BEX" source="CB_BEX"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CB_PAR_IA" source="CB_PAR_IA"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CB_PAR_AC" source="CB_PAR_AC"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="BIOBJECT_TXTLG" source="BIOBJECT_TXTLG"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="0TCTBWTYPE" source="TCTBWOTYPE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="0TCTOBJVERS" source="TCTOBJVERS"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="0TCTBWOBJCT" source="TCTBWOBJCT"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="0TCTSYSID" source="TCTSYSID"/>
+    </input>
+    <joinAttribute name="0TCTBWTYPE"/>
+    <joinAttribute name="0TCTOBJVERS"/>
+    <joinAttribute name="0TCTBWOBJCT"/>
+    <joinAttribute name="0TCTSYSID"/>
+  </calculationView>
+</calculationViews>
+<logicalModel id="Join_1">
+  <attributes>
+    <attribute id="0TCTDMUID" order="1" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Data Manager Request"/>
+      <keyMapping columnObjectName="Join_1" columnName="0TCTDMUID"/>
+    </attribute>
+    <attribute id="0TCTSOURCE" order="2" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Data Load: Source Object"/>
+      <keyMapping columnObjectName="Join_1" columnName="0TCTSOURCE"/>
+    </attribute>
+    <attribute id="0TCTBWOBJCT" order="3" displayAttribute="false" attributeHierarchyActive="false" descriptionColumnName="BIOBJECT_TXTLG">
+      <descriptions defaultDescription="Base: BW Object"/>
+      <keyMapping columnObjectName="Join_1" columnName="0TCTBWOBJCT"/>
+    </attribute>
+    <attribute id="0TCTUSERNM" order="4" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Frontend: User"/>
+      <keyMapping columnObjectName="Join_1" columnName="0TCTUSERNM"/>
+    </attribute>
+    <attribute id="0TCTSYSID" order="5" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Base: System ID"/>
+      <keyMapping columnObjectName="Join_1" columnName="0TCTSYSID"/>
+    </attribute>
+    <attribute id="0TCTBWTYPE" order="6" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Base: BW Object Type"/>
+      <keyMapping columnObjectName="Join_1" columnName="0TCTBWTYPE"/>
+    </attribute>
+    <attribute id="0TCTOBJVERS" order="7" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Base: BW Object Version"/>
+      <keyMapping columnObjectName="Join_1" columnName="0TCTOBJVERS"/>
+    </attribute>
+    <attribute id="0TCTDMCNT" order="8" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Data Manager: DM Access Counter, Statistic"/>
+      <keyMapping columnObjectName="Join_1" columnName="0TCTDMCNT"/>
+    </attribute>
+    <attribute id="0CALDAY" order="9" displayAttribute="false" attributeHierarchyActive="false" hidden="true">
+      <descriptions defaultDescription="Frontend: Calendar day"/>
+      <keyMapping columnObjectName="Join_1" columnName="0CALDAY"/>
+    </attribute>
+    <attribute id="0TCTBISBOBJ" order="10" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Frontend: BI Application Object"/>
+      <keyMapping columnObjectName="Join_1" columnName="0TCTBISBOBJ"/>
+    </attribute>
+    <attribute id="0TCTBIOTYPE" order="11" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Frontend: BI Application Type"/>
+      <keyMapping columnObjectName="Join_1" columnName="0TCTBIOTYPE"/>
+    </attribute>
+    <attribute id="0TCTBISOTYP" order="12" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Frontend: BI Application Object Type"/>
+      <keyMapping columnObjectName="Join_1" columnName="0TCTBISOTYP"/>
+    </attribute>
+    <attribute id="0TCTINITFLG" order="13" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Frontend: Initialization / Navigation Flag"/>
+      <keyMapping columnObjectName="Join_1" columnName="0TCTINITFLG"/>
+    </attribute>
+    <attribute id="0TCTOLAP_DM" order="14" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Frontend: Olap cache/DM/BWA access flag"/>
+      <keyMapping columnObjectName="Join_1" columnName="0TCTOLAP_DM"/>
+    </attribute>
+    <attribute id="0TCTDTCLASS" order="15" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Database: Table Data Class"/>
+      <keyMapping columnObjectName="Join_1" columnName="0TCTDTCLASS"/>
+    </attribute>
+    <attribute id="0TCTDVCLASS" order="16" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Database: Table Package"/>
+      <keyMapping columnObjectName="Join_1" columnName="0TCTDVCLASS"/>
+    </attribute>
+    <attribute id="0TCTBIOBJCT" order="17" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Frontend: Application"/>
+      <keyMapping columnObjectName="Join_1" columnName="0TCTBIOBJCT"/>
+    </attribute>
+    <attribute id="DATASOURCE" order="18" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Base: Data Source"/>
+      <keyMapping columnObjectName="Join_1" columnName="DATASOURCE"/>
+    </attribute>
+    <attribute id="TCTCONTREL" order="19" semanticType="empty" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="BW Object: Release Business Content"/>
+      <keyMapping columnObjectName="Join_1" columnName="TCTCONTREL"/>
+    </attribute>
+    <attribute id="TCTOWNER" order="20" semanticType="empty" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="BW Object: Person Responsible"/>
+      <keyMapping columnObjectName="Join_1" columnName="TCTOWNER"/>
+    </attribute>
+    <attribute id="0TCTTABCAT" order="21" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Database: Table Category for DB Statistics"/>
+      <keyMapping columnObjectName="Join_1" columnName="0TCTTABCAT"/>
+    </attribute>
+    <attribute id="0TCTAPPL" order="22" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Data Load: Application Component"/>
+      <keyMapping columnObjectName="Join_1" columnName="0TCTAPPL"/>
+    </attribute>
+    <attribute id="0TCTSRCTYP" order="23" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Data Load: Source Object Type"/>
+      <keyMapping columnObjectName="Join_1" columnName="0TCTSRCTYP"/>
+    </attribute>
+    <attribute id="TCTBCTSTMP" order="24" semanticType="empty" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="BW Object: Last Changed in Content"/>
+      <keyMapping columnObjectName="Join_1" columnName="TCTBCTSTMP"/>
+    </attribute>
+    <attribute id="TCTTSTPNM" order="25" semanticType="empty" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="BW Object: Last Changed By"/>
+      <keyMapping columnObjectName="Join_1" columnName="TCTTSTPNM"/>
+    </attribute>
+    <attribute id="TCTLSTCHG" order="26" semanticType="empty" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="BW Object: Last Changed"/>
+      <keyMapping columnObjectName="Join_1" columnName="TCTLSTCHG"/>
+    </attribute>
+    <attribute id="CB_BEX" order="27" semanticType="empty" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="BW Object: BEx Reporting Enabled"/>
+      <keyMapping columnObjectName="Join_1" columnName="CB_BEX"/>
+    </attribute>
+    <attribute id="CB_PAR_AC" order="28" semanticType="empty" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="BW Object: Parent Application Component"/>
+      <keyMapping columnObjectName="Join_1" columnName="CB_PAR_AC"/>
+    </attribute>
+    <attribute id="BIOBJECT_TXTLG" order="29" displayAttribute="false" attributeHierarchyActive="false" hidden="true">
+      <descriptions defaultDescription="Base: BI Object Long Text"/>
+      <keyMapping columnObjectName="Join_1" columnName="BIOBJECT_TXTLG"/>
+    </attribute>
+    <attribute id="PARENT_INFOAREA" order="30" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="BW Object: PARENT_INFOAREA"/>
+      <keyMapping columnObjectName="Join_1" columnName="PARENT_INFOAREA"/>
+    </attribute>
+    <attribute id="0TCTTABNAME" order="57" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Database: Table Name for DB Statistics"/>
+      <keyMapping columnObjectName="Join_1" columnName="0TCTTABNAME"/>
+    </attribute>
+    <attribute id="0TCTBWOSTYP" order="58" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Database: BI Object Sub Type"/>
+      <keyMapping columnObjectName="Join_1" columnName="0TCTBWOSTYP"/>
+    </attribute>
+    <attribute id="0TCTSSYSID" order="59" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Source System ID"/>
+      <keyMapping columnObjectName="Join_1" columnName="0TCTSSYSID"/>
+    </attribute>
+    <attribute id="0TCTAGPROV" order="60" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Data Manager: Aggregates that are used for access"/>
+      <keyMapping columnObjectName="Join_1" columnName="0TCTAGPROV"/>
+    </attribute>
+    <attribute id="0TCTPARPROV" order="61" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Data Manager: PartProvider, used during monitored step"/>
+      <keyMapping columnObjectName="Join_1" columnName="0TCTPARPROV"/>
+    </attribute>
+    <attribute id="0TCTBWOTYPE" order="62" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Data Manager: Type of Aggregates"/>
+      <keyMapping columnObjectName="Join_1" columnName="0TCTBWOTYPE"/>
+    </attribute>
+    <attribute id="0TCTPARTYPE" order="63" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Data Manager: Type of PartProvider"/>
+      <keyMapping columnObjectName="Join_1" columnName="0TCTPARTYPE"/>
+    </attribute>
+    <attribute id="0TCTSYSID$local">
+      <descriptions defaultDescription="0TCTSYSID"/>
+      <keyMapping columnObjectName="Join_1" columnName="0TCTSYSID"/>
+    </attribute>
+    <attribute id="0TCTOBJVERS$local">
+      <descriptions defaultDescription="0TCTOBJVERS"/>
+      <keyMapping columnObjectName="Join_1" columnName="0TCTOBJVERS"/>
+    </attribute>
+    <attribute id="PARENT_INFOAREA$local">
+      <keyMapping columnObjectName="Join_1" columnName="PARENT_INFOAREA"/>
+    </attribute>
+  </attributes>
+  <calculatedAttributes>
+    <calculatedAttribute id="CALENDAR_DAY" order="31" semanticType="empty" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Base: Calendar Day"/>
+      <keyCalculation datatype="DATE" expressionLanguage="SQL">
+        <formula>TO_DATE(&quot;0CALDAY&quot;, 'YYYYMMDD')</formula>
+      </keyCalculation>
+      </calculatedAttribute>
+  </calculatedAttributes>
+  <baseMeasures>
+    <measure id="0TCTNDBSEL" order="32" aggregationType="sum" measureType="simple" displayFolder="Data Manager">
+      <descriptions defaultDescription="Data Manager: Records, selected on database"/>
+      <measureMapping columnObjectName="Join_1" columnName="0TCTNDBSEL"/>
+    </measure>
+    <measure id="0TCTNDBTRA" order="33" aggregationType="sum" measureType="simple" displayFolder="Data Manager">
+      <descriptions defaultDescription="Data Manager: Records Transferred from Database"/>
+      <measureMapping columnObjectName="Join_1" columnName="0TCTNDBTRA"/>
+    </measure>
+    <measure id="0TCTTDMHIER" order="34" aggregationType="sum" measureType="simple" displayFolder="Data Manager">
+      <descriptions defaultDescription="Data Manager: DM Hierarchy"/>
+      <measureMapping columnObjectName="Join_1" columnName="0TCTTDMHIER"/>
+    </measure>
+    <measure id="0TCTTDMNAVA" order="35" aggregationType="sum" measureType="simple" displayFolder="Data Manager">
+      <descriptions defaultDescription="Data Manager: Nav. Attrs."/>
+      <measureMapping columnObjectName="Join_1" columnName="0TCTTDMNAVA"/>
+    </measure>
+    <measure id="0TCTTDMPOST" order="36" aggregationType="sum" measureType="simple" displayFolder="Data Manager">
+      <descriptions defaultDescription="Data Manager: DM Postprocessing"/>
+      <measureMapping columnObjectName="Join_1" columnName="0TCTTDMPOST"/>
+    </measure>
+    <measure id="0TCTTDMPREP" order="37" aggregationType="sum" measureType="simple" displayFolder="Data Manager">
+      <descriptions defaultDescription="Data Manager: DM Initialization"/>
+      <measureMapping columnObjectName="Join_1" columnName="0TCTTDMPREP"/>
+    </measure>
+    <measure id="0TCTTDMREAD" order="38" aggregationType="sum" measureType="simple" displayFolder="Data Manager">
+      <descriptions defaultDescription="Data Manager: Read DM Data"/>
+      <measureMapping columnObjectName="Join_1" columnName="0TCTTDMREAD"/>
+    </measure>
+    <measure id="0TCTTDMSID" order="39" aggregationType="sum" measureType="simple" displayFolder="Data Manager">
+      <descriptions defaultDescription="Data Manager: DM SID Processing"/>
+      <measureMapping columnObjectName="Join_1" columnName="0TCTTDMSID"/>
+    </measure>
+    <measure id="0TCTNOCELL" order="40" aggregationType="sum" measureType="simple" displayFolder="Frontend Statistics">
+      <descriptions defaultDescription="Frontend: Number of cells"/>
+      <measureMapping columnObjectName="Join_1" columnName="0TCTNOCELL"/>
+    </measure>
+    <measure id="0TCTQUCOUNT" order="41" aggregationType="sum" measureType="simple" displayFolder="Frontend Statistics">
+      <descriptions defaultDescription="Frontend: Counter for BI Application Objects"/>
+      <measureMapping columnObjectName="Join_1" columnName="0TCTQUCOUNT"/>
+    </measure>
+    <measure id="0TCTTIMEALL" order="42" aggregationType="sum" measureType="simple" displayFolder="Frontend Statistics">
+      <descriptions defaultDescription="Frontend: Total time"/>
+      <measureMapping columnObjectName="Join_1" columnName="0TCTTIMEALL"/>
+    </measure>
+    <measure id="0TCTTIMEDM" order="43" aggregationType="sum" measureType="simple" displayFolder="Frontend Statistics">
+      <descriptions defaultDescription="Frontend: Time recorded for DataManager"/>
+      <measureMapping columnObjectName="Join_1" columnName="0TCTTIMEDM"/>
+    </measure>
+    <measure id="0TCTTIMEFE" order="44" aggregationType="sum" measureType="simple" displayFolder="Frontend Statistics">
+      <descriptions defaultDescription="Frontend: Time recorded on front-end side"/>
+      <measureMapping columnObjectName="Join_1" columnName="0TCTTIMEFE"/>
+    </measure>
+    <measure id="0TCTTIMENA" order="45" aggregationType="sum" measureType="simple" displayFolder="Frontend Statistics">
+      <descriptions defaultDescription="Frontend: Time not assigned to front-end, OLAP or DataManager"/>
+      <measureMapping columnObjectName="Join_1" columnName="0TCTTIMENA"/>
+    </measure>
+    <measure id="0TCTTMEOLAP" order="46" aggregationType="sum" measureType="simple" displayFolder="Frontend Statistics">
+      <descriptions defaultDescription="Frontend: Time recorded for OLAP"/>
+      <measureMapping columnObjectName="Join_1" columnName="0TCTTMEOLAP"/>
+    </measure>
+    <measure id="0TCTTMEPLAN" order="47" aggregationType="sum" measureType="simple" displayFolder="Frontend Statistics">
+      <descriptions defaultDescription="Frontend: Time recorded for Planning"/>
+      <measureMapping columnObjectName="Join_1" columnName="0TCTTMEPLAN"/>
+    </measure>
+    <measure id="0TCTWTCOUNT" order="48" aggregationType="sum" measureType="simple" displayFolder="Frontend Statistics">
+      <descriptions defaultDescription="Frontend: Counter for BI Applications"/>
+      <measureMapping columnObjectName="Join_1" columnName="0TCTWTCOUNT"/>
+    </measure>
+    <measure id="0TCTDURTION" order="49" aggregationType="sum" measureType="simple" displayFolder="Data Load">
+      <descriptions defaultDescription="Data Load: Duration"/>
+      <measureMapping columnObjectName="Join_1" columnName="0TCTDURTION"/>
+    </measure>
+    <measure id="0TCTENDRECS" order="50" aggregationType="sum" measureType="simple" displayFolder="Data Load">
+      <descriptions defaultDescription="Data Load: Number of Records at End"/>
+      <measureMapping columnObjectName="Join_1" columnName="0TCTENDRECS"/>
+    </measure>
+    <measure id="0TCTENDSIZE" order="51" aggregationType="sum" measureType="simple" displayFolder="Data Load">
+      <descriptions defaultDescription="Data Load: Size at end"/>
+      <measureMapping columnObjectName="Join_1" columnName="0TCTENDSIZE"/>
+    </measure>
+    <measure id="0TCTDBSIZE" order="52" aggregationType="sum" measureType="simple" displayFolder="Database Size">
+      <descriptions defaultDescription="Database: Table size"/>
+      <measureMapping columnObjectName="Join_1" columnName="0TCTDBSIZE"/>
+    </measure>
+    <measure id="0TCTNOTAB" order="53" aggregationType="sum" measureType="simple" displayFolder="Database Size">
+      <descriptions defaultDescription="Database: Number of Tables"/>
+      <measureMapping columnObjectName="Join_1" columnName="0TCTNOTAB"/>
+    </measure>
+    <measure id="0TCTLOGSIZE" order="54" aggregationType="sum" measureType="simple" displayFolder="Database Size">
+      <descriptions defaultDescription="Database: Table Logical Size"/>
+      <measureMapping columnObjectName="Join_1" columnName="0TCTLOGSIZE"/>
+    </measure>
+    <measure id="0TCTNUMREC" order="55" aggregationType="sum" measureType="simple" displayFolder="Database Size">
+      <descriptions defaultDescription="Database: Number of Records"/>
+      <measureMapping columnObjectName="Join_1" columnName="0TCTNUMREC"/>
+    </measure>
+    <measure id="0TCTTBLWID" order="56" aggregationType="sum" measureType="simple" displayFolder="Database Size">
+      <descriptions defaultDescription="Database: Table Width"/>
+      <measureMapping columnObjectName="Join_1" columnName="0TCTTBLWID"/>
+    </measure>
+  </baseMeasures>
+  <calculatedMeasures/>
+  <restrictedMeasures/>
+  <localDimensions/>
+  <sharedDimensions>
+    <logicalJoin associatedObjectUri="DIM_InfoArea" useDimensionViewHierarchies="false">
+      <attributes>
+        <attributeRef>0TCTSYSID$local</attributeRef>
+        <attributeRef>0TCTOBJVERS$local</attributeRef>
+        <attributeRef>PARENT_INFOAREA$local</attributeRef>
+      </attributes>
+      <associatedAttributeNames>
+        <attributeName>TCTSYSID</attributeName>
+        <attributeName>TCTOBJVERS</attributeName>
+        <attributeName>TCTIFAREA</attributeName>
+      </associatedAttributeNames>
+      <properties cardinality="CN_1" joinType="inner" joinOperator="Equal"/>
+      <associatedAttributeFeatures/>
+    </logicalJoin>
+  </sharedDimensions>
+</logicalModel>
+<layout>
+  <shapes>
+    <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+      <upperLeftCorner x="92" y="112"/>
+    
+      <rectangleSize width="160"/>
+    </shape>
+  
+    <shape expanded="true" modelObjectName="Union_1" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="92" y="352"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape expanded="true" modelObjectName="Join_1" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="92" y="232"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape modelObjectName="Union_1" modelObjectNameSpace="Join_1" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="20" y="30"/>
+      <rectangleSize width="167"/>
+    </shape>
+    <shape modelObjectName="DIM_BI_Objects" modelObjectNameSpace="Join_1" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="320" y="30"/>
+      <rectangleSize width="162"/>
+    </shape>
+    <shape modelObjectName="Join_1" modelObjectNameSpace="StarJoinViewNodeInput" modelObjectType="repository">
+      <upperLeftCorner x="20" y="30"/>
+      <rectangleSize width="250"/>
+    </shape>
+    <shape modelObjectName="DIM_InfoArea" modelObjectNameSpace="StarJoinViewNodeSharedCV" modelObjectType="repository">
+      <upperLeftCorner x="320" y="30"/>
+      <rectangleSize width="250"/>
+    </shape>
+  </shapes>
+</layout>
+</Calculation:scenario>

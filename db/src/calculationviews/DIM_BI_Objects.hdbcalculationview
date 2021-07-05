@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" xmlns:Dimension="http://www.sap.com/ndb/BiModelDimension.ecore" id="DIM_BI_Objects" applyPrivilegeType="NONE" dataCategory="DIMENSION" dimensionType="STANDARD" schemaVersion="3.0" outputViewType="Projection" cacheInvalidationPeriod="NONE" enforceSqlExecution="false">
+<descriptions defaultDescription="BI Objects Dimension"/>
+<localVariables/>
+<variableMappings/>
+<dataSources>
+  <DataSource id="0TCTBWOBJCT_ATTR">
+    <resourceUri>0TCTBWOBJCT_ATTR</resourceUri>
+  </DataSource>
+  <DataSource id="0TCTBWOBJCT_TEXT">
+    <resourceUri>0TCTBWOBJCT_TEXT</resourceUri>
+  </DataSource>
+</dataSources>
+<calculationViews>
+  <calculationView xsi:type="Calculation:JoinView" id="Join_1" cardinality="C1_1" joinType="leftOuter">
+    <viewAttributes>
+      <viewAttribute id="TCTSYSID"/>
+      <viewAttribute id="TCTBWOTYPE"/>
+      <viewAttribute id="TCTOBJVERS"/>
+      <viewAttribute id="TCTBWOBJCT"/>
+      <viewAttribute id="OBJVERS"/>
+      <viewAttribute id="CHANGED"/>
+      <viewAttribute id="TCTCONTREL"/>
+      <viewAttribute id="TCTOWNER"/>
+      <viewAttribute id="TCTBCTSTMP"/>
+      <viewAttribute id="TCTTSTPNM"/>
+      <viewAttribute id="TCTLSTCHG"/>
+      <viewAttribute id="TCTBWOSTYP"/>
+      <viewAttribute id="TCTIMPRTNC"/>
+      <viewAttribute id="TCTRECSIZE"/>
+      <viewAttribute id="CB_DVE"/>
+      <viewAttribute id="CB_BEX"/>
+      <viewAttribute id="CB_PAR_IA"/>
+      <viewAttribute id="CB_PAR_AC"/>
+      <viewAttribute id="TXTSH"/>
+      <viewAttribute id="TXTLG"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="0TCTBWOBJCT_ATTR">
+      <mapping xsi:type="Calculation:AttributeMapping" target="TCTSYSID" source="TCTSYSID"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TCTBWOTYPE" source="TCTBWOTYPE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TCTOBJVERS" source="TCTOBJVERS"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TCTBWOBJCT" source="TCTBWOBJCT"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="OBJVERS" source="OBJVERS"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CHANGED" source="CHANGED"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TCTCONTREL" source="TCTCONTREL"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TCTOWNER" source="TCTOWNER"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TCTBCTSTMP" source="TCTBCTSTMP"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TCTTSTPNM" source="TCTTSTPNM"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TCTLSTCHG" source="TCTLSTCHG"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TCTBWOSTYP" source="TCTBWOSTYP"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TCTIMPRTNC" source="TCTIMPRTNC"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TCTRECSIZE" source="TCTRECSIZE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CB_DVE" source="CB_DVE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CB_BEX" source="CB_BEX"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CB_PAR_IA" source="CB_PAR_IA"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CB_PAR_AC" source="CB_PAR_AC"/>
+    </input>
+    <input node="0TCTBWOBJCT_TEXT">
+      <mapping xsi:type="Calculation:AttributeMapping" target="TXTSH" source="TXTSH"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TXTLG" source="TXTLG"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TCTSYSID" source="TCTSYSID"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TCTBWOTYPE" source="TCTBWOTYPE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TCTOBJVERS" source="TCTOBJVERS"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TCTBWOBJCT" source="TCTBWOBJCT"/>
+    </input>
+    <joinAttribute name="TCTSYSID"/>
+    <joinAttribute name="TCTBWOTYPE"/>
+    <joinAttribute name="TCTOBJVERS"/>
+    <joinAttribute name="TCTBWOBJCT"/>
+  </calculationView>
+</calculationViews>
+<logicalModel id="Join_1">
+  <attributes>
+    <attribute id="TCTSYSID" order="1" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="BW System"/>
+      <keyMapping columnObjectName="Join_1" columnName="TCTSYSID"/>
+    </attribute>
+    <attribute id="TCTBWOTYPE" order="2" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="BI Object Type"/>
+      <keyMapping columnObjectName="Join_1" columnName="TCTBWOTYPE"/>
+    </attribute>
+    <attribute id="TCTOBJVERS" order="3" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Object Version"/>
+      <keyMapping columnObjectName="Join_1" columnName="TCTOBJVERS"/>
+    </attribute>
+    <attribute id="TCTBWOBJCT" order="4" descriptionColumnName="BIOBJECT_TXTLG" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="BI Object"/>
+      <keyMapping columnObjectName="Join_1" columnName="TCTBWOBJCT"/>
+    </attribute>
+    <attribute id="OBJVERS" order="5" displayAttribute="false" attributeHierarchyActive="false" hidden="true">
+      <descriptions defaultDescription="Object version"/>
+      <keyMapping columnObjectName="Join_1" columnName="OBJVERS"/>
+    </attribute>
+    <attribute id="CHANGED" order="6" displayAttribute="false" attributeHierarchyActive="false" hidden="true">
+      <descriptions defaultDescription="Change flag ( I inserted / D deleted )"/>
+      <keyMapping columnObjectName="Join_1" columnName="CHANGED"/>
+    </attribute>
+    <attribute id="TCTCONTREL" order="7" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Release Business Content"/>
+      <keyMapping columnObjectName="Join_1" columnName="TCTCONTREL"/>
+    </attribute>
+    <attribute id="TCTOWNER" order="8" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Person Responsible"/>
+      <keyMapping columnObjectName="Join_1" columnName="TCTOWNER"/>
+    </attribute>
+    <attribute id="TCTBCTSTMP" order="9" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Last Changed in Content"/>
+      <keyMapping columnObjectName="Join_1" columnName="TCTBCTSTMP"/>
+    </attribute>
+    <attribute id="TCTTSTPNM" order="10" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Last Changed By"/>
+      <keyMapping columnObjectName="Join_1" columnName="TCTTSTPNM"/>
+    </attribute>
+    <attribute id="TCTLSTCHG" order="11" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Last Changed"/>
+      <keyMapping columnObjectName="Join_1" columnName="TCTLSTCHG"/>
+    </attribute>
+    <attribute id="TCTBWOSTYP" order="12" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="BI Object Sub Type"/>
+      <keyMapping columnObjectName="Join_1" columnName="TCTBWOSTYP"/>
+    </attribute>
+    <attribute id="TCTIMPRTNC" order="13" displayAttribute="false" attributeHierarchyActive="false" hidden="true">
+      <descriptions defaultDescription="Importance"/>
+      <keyMapping columnObjectName="Join_1" columnName="TCTIMPRTNC"/>
+    </attribute>
+    <attribute id="TCTRECSIZE" order="14" displayAttribute="false" attributeHierarchyActive="false" hidden="true">
+      <descriptions defaultDescription="Record Size"/>
+      <keyMapping columnObjectName="Join_1" columnName="TCTRECSIZE"/>
+    </attribute>
+    <attribute id="CB_DVE" order="15" displayAttribute="false" attributeHierarchyActive="false" hidden="true">
+      <descriptions defaultDescription="Delivered Version Exists"/>
+      <keyMapping columnObjectName="Join_1" columnName="CB_DVE"/>
+    </attribute>
+    <attribute id="CB_BEX" order="16" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="BEx Reporting Enabled"/>
+      <keyMapping columnObjectName="Join_1" columnName="CB_BEX"/>
+    </attribute>
+    <attribute id="CB_PAR_IA" order="17" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Parent InfoArea"/>
+      <keyMapping columnObjectName="Join_1" columnName="CB_PAR_IA"/>
+    </attribute>
+    <attribute id="CB_PAR_AC" order="18" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Parent Application Component"/>
+      <keyMapping columnObjectName="Join_1" columnName="CB_PAR_AC"/>
+    </attribute>
+    <attribute id="BIOBJECT_TXTSH" order="19" displayAttribute="false" attributeHierarchyActive="false" hidden="true">
+      <descriptions defaultDescription="Short Description"/>
+      <keyMapping columnObjectName="Join_1" columnName="TXTSH"/>
+    </attribute>
+    <attribute id="BIOBJECT_TXTLG" order="20" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Long Description"/>
+      <keyMapping columnObjectName="Join_1" columnName="TXTLG"/>
+    </attribute>
+  </attributes>
+  <calculatedAttributes/>
+  <baseMeasures/>
+  <calculatedMeasures/>
+  <restrictedMeasures/></logicalModel>
+<layout>
+  <shapes>
+    <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+      <upperLeftCorner x="40" y="85"/>
+    </shape>
+    <shape expanded="true" modelObjectName="Join_1" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="100" y="209"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape modelObjectName="0TCTBWOBJCT_ATTR" modelObjectNameSpace="Join_1" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="20" y="30"/>
+      <rectangleSize width="192"/>
+    </shape>
+    <shape modelObjectName="0TCTBWOBJCT_TEXT" modelObjectNameSpace="Join_1" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="320" y="30"/>
+      <rectangleSize width="192"/>
+    </shape>
+  </shapes>
+</layout>
+</Calculation:scenario>

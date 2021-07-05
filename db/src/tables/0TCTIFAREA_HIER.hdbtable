@@ -1,0 +1,11 @@
+COLUMN TABLE "0TCTIFAREA_HIER" (
+	HIEID	VARCHAR(25)	COMMENT 'Internal hierarchy ID (unique ID)',
+	NODEID	INTEGER	COMMENT 'Internal ID number of a hierarchy node',
+	IOBJNM	VARCHAR(30)	COMMENT 'InfoObject',
+	NODENAME	VARCHAR(5000)	COMMENT 'Name of the Hierarchy Node (String)',
+	TLEVEL	INTEGER	COMMENT 'Level of a hierarchy node',
+	LINK	VARCHAR(1)	COMMENT 'Link indicator for a hierarchy node',
+	PARENTID	INTEGER COMMENT 'Parent ID for a hierarchy node',
+	CHILDID	INTEGER	COMMENT 'Child ID of Hierarchy Node',
+	NEXTID	INTEGER	COMMENT 'Next ID of a hierarchy node'
+)

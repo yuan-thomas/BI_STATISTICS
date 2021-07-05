@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" xmlns:Dimension="http://www.sap.com/ndb/BiModelDimension.ecore" id="DIM_InfoArea" applyPrivilegeType="NONE" dataCategory="DIMENSION" dimensionType="STANDARD" schemaVersion="3.0" outputViewType="Projection" cacheInvalidationPeriod="NONE" enforceSqlExecution="false">
+<descriptions defaultDescription="InfoArea Dimension"/>
+<localVariables/>
+<variableMappings/>
+<dataSources>
+  <DataSource id="0TCTIFAREA_TEXT">
+    <resourceUri>0TCTIFAREA_TEXT</resourceUri>
+  </DataSource>
+  <DataSource id="0TCTIFAREA_HIER">
+    <resourceUri>0TCTIFAREA_HIER</resourceUri>
+  </DataSource>
+  <DataSource id="INFOAREA_NOT_APPLICABLE_DUMMY_ROW">
+    <resourceUri>INFOAREA_NOT_APPLICABLE_DUMMY_ROW</resourceUri>
+  </DataSource>
+</dataSources>
+<calculationViews>
+  <calculationView xsi:type="Calculation:ProjectionView" id="Projection_1">
+    <viewAttributes>
+      <viewAttribute id="TCTSYSID"/>
+      <viewAttribute id="TCTOBJVERS"/>
+      <viewAttribute id="TCTIFAREA"/>
+      <viewAttribute id="TXTSH"/>
+      <viewAttribute id="TXTLG"/>
+    </viewAttributes>
+    <calculatedViewAttributes>
+      <calculatedViewAttribute id="CONCAT_KEY" datatype="VARCHAR" length="5000" expressionLanguage="SQL">
+        <formula>&quot;TCTSYSID&quot; || &quot;TCTOBJVERS&quot; || &quot;TCTIFAREA&quot;</formula>
+      </calculatedViewAttribute>
+    </calculatedViewAttributes>
+    <input node="0TCTIFAREA_TEXT"/>
+  </calculationView>
+  <calculationView xsi:type="Calculation:JoinView" id="Join_1" cardinality="C1_1" joinType="fullOuter">
+    <viewAttributes>
+      <viewAttribute id="TCTSYSID"/>
+      <viewAttribute id="TCTOBJVERS"/>
+      <viewAttribute id="TCTIFAREA"/>
+      <viewAttribute id="TXTSH"/>
+      <viewAttribute id="TXTLG"/>
+      <viewAttribute id="CONCAT_KEY"/>
+      <viewAttribute id="HIEID"/>
+      <viewAttribute id="NODEID"/>
+      <viewAttribute id="IOBJNM"/>
+      <viewAttribute id="NODENAME"/>
+      <viewAttribute id="TLEVEL"/>
+      <viewAttribute id="LINK"/>
+      <viewAttribute id="PARENTID"/>
+      <viewAttribute id="CHILDID"/>
+      <viewAttribute id="NEXTID"/>
+    </viewAttributes>
+    <calculatedViewAttributes>
+      <calculatedViewAttribute id="KEY_AND_TEXT" datatype="VARCHAR" length="200" expressionLanguage="SQL">
+        <formula>'[' || &quot;TCTIFAREA&quot; || '] ' || &quot;TXTLG&quot;</formula>
+      </calculatedViewAttribute>
+    </calculatedViewAttributes>
+    <input node="Projection_1">
+      <mapping xsi:type="Calculation:AttributeMapping" target="TCTSYSID" source="TCTSYSID"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TCTOBJVERS" source="TCTOBJVERS"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TCTIFAREA" source="TCTIFAREA"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TXTSH" source="TXTSH"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TXTLG" source="TXTLG"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CONCAT_KEY" source="CONCAT_KEY"/>
+    </input>
+    <input node="0TCTIFAREA_HIER">
+      <mapping xsi:type="Calculation:AttributeMapping" target="HIEID" source="HIEID"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="NODEID" source="NODEID"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="IOBJNM" source="IOBJNM"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="NODENAME" source="NODENAME"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TLEVEL" source="TLEVEL"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="LINK" source="LINK"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="PARENTID" source="PARENTID"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CHILDID" source="CHILDID"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="NEXTID" source="NEXTID"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CONCAT_KEY" source="NODENAME"/>
+    </input>
+    <joinAttribute name="CONCAT_KEY"/>
+  </calculationView>
+  <calculationView xsi:type="Calculation:UnionView" id="Union_1">
+    <viewAttributes>
+      <viewAttribute id="TCTSYSID"/>
+      <viewAttribute id="TCTOBJVERS"/>
+      <viewAttribute id="TCTIFAREA"/>
+      <viewAttribute id="TXTSH"/>
+      <viewAttribute id="TXTLG"/>
+      <viewAttribute id="CONCAT_KEY"/>
+      <viewAttribute id="HIEID"/>
+      <viewAttribute id="NODEID"/>
+      <viewAttribute id="IOBJNM"/>
+      <viewAttribute id="NODENAME"/>
+      <viewAttribute id="TLEVEL"/>
+      <viewAttribute id="LINK"/>
+      <viewAttribute id="PARENTID"/>
+      <viewAttribute id="CHILDID"/>
+      <viewAttribute id="NEXTID"/>
+      <viewAttribute id="KEY_AND_TEXT"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="Join_1" emptyUnionBehavior="NO_ROW">
+      <mapping xsi:type="Calculation:AttributeMapping" target="TCTSYSID" source="TCTSYSID"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TCTOBJVERS" source="TCTOBJVERS"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TCTIFAREA" source="TCTIFAREA"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TXTSH" source="TXTSH"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TXTLG" source="TXTLG"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CONCAT_KEY" source="CONCAT_KEY"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="HIEID" source="HIEID"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="NODEID" source="NODEID"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="IOBJNM" source="IOBJNM"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="NODENAME" source="NODENAME"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TLEVEL" source="TLEVEL"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="LINK" source="LINK"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="PARENTID" source="PARENTID"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CHILDID" source="CHILDID"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="NEXTID" source="NEXTID"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="KEY_AND_TEXT" source="KEY_AND_TEXT"/>
+    </input>
+    <input node="INFOAREA_NOT_APPLICABLE_DUMMY_ROW" emptyUnionBehavior="NO_ROW">
+      <mapping xsi:type="Calculation:AttributeMapping" target="TCTSYSID" source="TCTSYSID"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TCTOBJVERS" source="TCTOBJVERS"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TCTIFAREA" source="TCTIFAREA"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TXTSH" source="INFOAREA_TXTLG"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TXTLG" source="INFOAREA_TXTSH"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CONCAT_KEY" source="NODENAME"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="HIEID" source="HIEID"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="NODEID" source="NODEID"/>
+      <mapping xsi:type="Calculation:ConstantAttributeMapping" target="IOBJNM" null="true"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="NODENAME" source="NODENAME"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TLEVEL" source="TLEVEL"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="LINK" source="LINK"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="PARENTID" source="PARENTID"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CHILDID" source="CHILDID"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="NEXTID" source="NEXTID"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="KEY_AND_TEXT" source="KEY_AND_TEXT"/>
+    </input>
+  </calculationView>
+</calculationViews>
+<inlineHierarchy xsi:type="Dimension:ParentChildHierarchy" id="INFOAREA_HIERARCHY" aggregateAllNodes="true" orphanedNodesHandling="ROOT_NODES" rootNodeVisibility="ADD_ROOT_NODE_IF_DEFINED" cacheEnabled="true" cycleHandling="BREAKUP" emptyValueIsNull="true">
+  <descriptions defaultDescription="Infoarea Hierarchy"/>
+  <unassignedMemberProperties mode="FALSE"/>
+  <attributeParentPair attribute="NODEID" parentAttribute="PARENTID"/>
+</inlineHierarchy>
+<logicalModel id="Union_1">
+  <attributes>
+    <attribute id="TCTSYSID" order="1" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Infoarea: BW System"/>
+      <keyMapping columnObjectName="Union_1" columnName="TCTSYSID"/>
+    </attribute>
+    <attribute id="TCTOBJVERS" order="2" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Infoarea: Object Version"/>
+      <keyMapping columnObjectName="Union_1" columnName="TCTOBJVERS"/>
+    </attribute>
+    <attribute id="TCTIFAREA" order="3" descriptionColumnName="INFOAREA_TXTLG" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="InfoArea"/>
+      <keyMapping columnObjectName="Union_1" columnName="TCTIFAREA"/>
+    </attribute>
+    <attribute id="INFOAREA_TXTSH" order="4" displayAttribute="false" attributeHierarchyActive="false" hidden="true">
+      <descriptions defaultDescription="Infoarea: Short description"/>
+      <keyMapping columnObjectName="Union_1" columnName="TXTSH"/>
+    </attribute>
+    <attribute id="INFOAREA_TXTLG" order="5" displayAttribute="false" attributeHierarchyActive="false" hidden="true">
+      <descriptions defaultDescription="Infoarea: Long description"/>
+      <keyMapping columnObjectName="Union_1" columnName="TXTLG"/>
+    </attribute>
+    <attribute id="CONCAT_KEY" hidden="true" order="6" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Infoarea: CONCAT_KEY"/>
+      <keyMapping columnObjectName="Union_1" columnName="CONCAT_KEY"/>
+    </attribute>
+    <attribute id="HIEID" order="7" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Infoarea: Internal hierarchy ID (unique ID)"/>
+      <keyMapping columnObjectName="Union_1" columnName="HIEID"/>
+    </attribute>
+    <attribute id="NODEID" order="8" descriptionColumnName="KEY_AND_TEXT" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Infoarea: InfoArea Hierarhcy"/>
+      <keyMapping columnObjectName="Union_1" columnName="NODEID"/>
+    </attribute>
+    <attribute id="IOBJNM" hidden="true" order="9" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Infoarea: InfoObject"/>
+      <keyMapping columnObjectName="Union_1" columnName="IOBJNM"/>
+    </attribute>
+    <attribute id="NODENAME" order="10" displayAttribute="false" attributeHierarchyActive="false" hidden="true">
+      <descriptions defaultDescription="Infoarea: Name of the Hierarchy Node (String)"/>
+      <keyMapping columnObjectName="Union_1" columnName="NODENAME"/>
+    </attribute>
+    <attribute id="TLEVEL" order="11" displayAttribute="false" attributeHierarchyActive="false" hidden="true">
+      <descriptions defaultDescription="Infoarea: Level of a hierarchy node"/>
+      <keyMapping columnObjectName="Union_1" columnName="TLEVEL"/>
+    </attribute>
+    <attribute id="LINK" order="12" displayAttribute="false" attributeHierarchyActive="false" hidden="true">
+      <descriptions defaultDescription="Infoarea: Link indicator for a hierarchy node"/>
+      <keyMapping columnObjectName="Union_1" columnName="LINK"/>
+    </attribute>
+    <attribute id="PARENTID" order="13" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Infoarea: Parent ID for a hierarchy node"/>
+      <keyMapping columnObjectName="Union_1" columnName="PARENTID"/>
+    </attribute>
+    <attribute id="CHILDID" order="14" displayAttribute="false" attributeHierarchyActive="false" hidden="true">
+      <descriptions defaultDescription="Infoarea: Child ID of Hierarchy Node"/>
+      <keyMapping columnObjectName="Union_1" columnName="CHILDID"/>
+    </attribute>
+    <attribute id="NEXTID" order="15" displayAttribute="false" attributeHierarchyActive="false" hidden="true">
+      <descriptions defaultDescription="Infoarea: Next ID of a hierarchy node"/>
+      <keyMapping columnObjectName="Union_1" columnName="NEXTID"/>
+    </attribute>
+  
+    <attribute id="KEY_AND_TEXT" order="16" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Infoarea: KEY_AND_TEXT"/>
+  
+      <keyMapping columnObjectName="Union_1" columnName="KEY_AND_TEXT"/>
+  
+    </attribute>
+  </attributes>
+  <calculatedAttributes/>
+  <baseMeasures/>
+  <calculatedMeasures/>
+  <restrictedMeasures/>
+</logicalModel>
+<layout>
+  <shapes>
+    <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+      <upperLeftCorner x="92" y="112"/>
+    
+      <rectangleSize width="160"/>
+    </shape>
+  
+    <shape expanded="true" modelObjectName="Projection_1" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="92" y="477"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape expanded="true" modelObjectName="Join_1" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="92" y="337"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape modelObjectName="Projection_1" modelObjectNameSpace="Join_1" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="20" y="30"/>
+      <rectangleSize width="136"/>
+    </shape>
+    <shape modelObjectName="0TCTIFAREA_HIER" modelObjectNameSpace="Join_1" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="285" y="4"/>
+      <rectangleSize width="173"/>
+    </shape>
+  
+    <shape expanded="true" modelObjectName="Union_1" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="92" y="217"/>
+      <rectangleSize height="30" width="160"/>
+    </shape></shapes>
+</layout>
+</Calculation:scenario>

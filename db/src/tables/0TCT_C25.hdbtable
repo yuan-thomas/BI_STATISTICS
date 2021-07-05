@@ -1,0 +1,21 @@
+COLUMN TABLE "0TCT_C25" (
+    "0TCTTABNAME" VARCHAR(30) COMMENT 'Table Name for DB Statistics',
+    "0TCTBWOBJCT" VARCHAR(45) COMMENT 'BI Object',
+    "0TCTSYSID" VARCHAR(10) COMMENT 'BW System',
+    "0TCTBWOSTYP" VARCHAR(4) COMMENT 'BI Object Sub Type',
+    "0TCTBWOTYPE" VARCHAR(4) COMMENT 'BI Object Type',
+    "0TCTDTCLASS" VARCHAR(5) COMMENT 'Table Data Class',
+    "0TCTDVCLASS" VARCHAR(30) COMMENT 'Table Package',
+    "0TCTSSYSID" VARCHAR(10) COMMENT 'Source System',
+    "0TCTTABCAT" VARCHAR(5) COMMENT 'Table Category for DB Statistics',
+    "0TCTANDAT" VARCHAR(8) COMMENT 'Analysis Date for DB Statistics',
+    "0TCTAPPL" VARCHAR(30) COMMENT 'Application Component',
+    "0TCTIFAREA" VARCHAR(30) COMMENT 'InfoArea',
+    "0TCTOBJVERS" VARCHAR(1) COMMENT 'Object Version',
+    "0CALDAY" VARCHAR(8) COMMENT 'Calendar day',
+    "0TCTDBSIZE" DECIMAL(34,6) COMMENT 'Database Table size',
+    "0TCTLOGSIZE" DECIMAL(34,6) COMMENT 'Database Table Logical Size',
+    "0TCTNOTAB" INTEGER COMMENT 'Number of Tables',
+    "0TCTNUMREC" DECIMAL(17) COMMENT 'Number of Records',
+    "0TCTTBLWID" DECIMAL(17) COMMENT 'Table Width'
+) COMMENT 'DB Volume'
