@@ -1,0 +1,5 @@
+COLUMN TABLE RSO_ASC_TYPE
+(
+	ASC_TYPE VARCHAR(3) COMMENT 'Association type in BW Repository',
+	ASC_DESC VARCHAR(60) COMMENT 'Association type description'
+)

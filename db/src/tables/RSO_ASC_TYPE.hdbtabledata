@@ -1,0 +1,31 @@
+{
+  "format_version": 1,
+  "imports": 
+   [
+    {
+     "column_mappings" : {
+        "ASC_TYPE" : "ASC_TYPE",
+        "ASC_DESC" : "ASC_DESC"
+     }, 
+     "import_settings" : {
+        "import_columns" : [ 
+           "ASC_TYPE", 
+           "ASC_DESC"
+        ]
+     },
+
+     "source_data" : { 
+       "data_type" : "CSV", 
+       "file_name" : "RSO_ASC_TYPE.csv", 
+       "has_header" : true,
+       "no_data_import": false,
+       "delete_existing_foreign_data": true,
+       "dialect"   : "HANA",  
+       "type_config" : { 
+          "delimiter" : "," 
+        } 
+      }, 
+     "target_table" : "RSO_ASC_TYPE"  
+    }
+   ] 
+}

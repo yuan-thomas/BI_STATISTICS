@@ -1,0 +1,36 @@
+ASC_TYPE,ASC_DESC
+000,Default
+001,Existentially requires
+002,Requires
+003,Used by
+004,Sends data to
+005,Receives data from
+006,Is displayed in
+020,Schedules
+021,Is scheduled by
+100,Is compounded to
+101,Has attribute
+102,Has navigation attribute
+103,Has aggregation-referenced characteristic
+104,Refers to characteristic
+105,Has unit
+106,Has access/non-cumulative value change
+107,Has outflow
+108,Has fixed key figure
+109,Referenced key figure
+110,Can be time-converted into
+111,Has as elimination characteristic
+112,Has Navigation Attribute as InfoProvider
+113,Has as Hierarchy Characteristic
+114,For Determination of Source Currency
+115,For Determination of Target Currency
+116,For Time Reference in the Currency Translation Type
+117,For Exchange Rate Determination in the Currency Trans. Type
+118,Quantity Translation: Determing Translation Factor
+119,Quantity Translation: Reference InfoObject
+120,Quantity Translation: Determine Source Quantity Unit
+121,Quantity Translation: Determine Target Quantity Unit
+122,Quantity Translation: Determine Quantity Unit (Attribute)
+123,Quantity Translation: Determine Quantity Unit (Attribute)
+999,Undefined
+124,Has XXL Attribute

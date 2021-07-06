@@ -1,0 +1,27 @@
+COLUMN TABLE BWOBJECT_WHEREUSED
+(
+	ASC_TYPE VARCHAR(3) COMMENT 'Association type in BW Repository',
+	TLOGO VARCHAR(4) COMMENT 'BW: Object Type (TLOGO)',
+	OBJNM VARCHAR(40) COMMENT 'Object Name in Object Directory',
+	OBJVERS VARCHAR(1) COMMENT 'Object version',
+	TLOGO_DEP VARCHAR(4) COMMENT 'Dependent Object Type',
+	OBJNM_DEP VARCHAR(40) COMMENT 'Dependent Object Name in Object Directory'
+)
+
+/* Extraction Logic
+DO
+BEGIN
+	declare row_count INT;
+	declare sql_statement clob;
+	
+	view_list = select VIEW_NAME from SYS.VIEWS WHERE SCHEMA_NAME = '_SYS_BIC' AND VIEW_NAME LIKE 'system-local.bw.bwsearch.SAPHANADB.%.WHEREUSED/%' AND VIEW_TYPE = 'JOIN';
+
+	select string_agg( '( SELECT ASC_TYPE, OBJVERS, TLOGO, OBJNM, TLOGO_DEP, OBJNM_DEP FROM "_SYS_BIC"."' || VIEW_NAME || '")', ' UNION ALL ' ) into sql_statement FROM :view_list;
+	
+	execute immediate 'select count(1) from ('||:sql_statement||')';
+
+	execute immediate :sql_statement;
+	
+END	
+
+*/
