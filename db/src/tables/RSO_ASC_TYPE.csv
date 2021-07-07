@@ -27,6 +27,7 @@ ASC_TYPE,ASC_DESC
 036,Sends data to InfoCube
 037,Sends data to DDSO
 038,Sends data to InfoObject
+040,Sends data to ADSO
 041,Update Rule receives data from InfoSource
 042,InfoSource contains InfoObject
 043,Update Rule sends data to Cube
@@ -38,6 +39,7 @@ ASC_TYPE,ASC_DESC
 062,Query based on InfoObject
 064,Query based on MultiProvider
 065,Query based on DSO
+066,InfoObject Catalog contains InfoObject
 068,Query element refers to InfoObject
 100,Is compounded to
 101,Has attribute
