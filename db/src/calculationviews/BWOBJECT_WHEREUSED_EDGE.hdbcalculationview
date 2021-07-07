@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" id="BWOBJECT_WHEREUSED_EDGE" applyPrivilegeType="NONE" dataCategory="DIMENSION" dimensionType="STANDARD" schemaVersion="3.0" outputViewType="Projection" cacheInvalidationPeriod="NONE" enforceSqlExecution="false">
+<descriptions defaultDescription="Edge table of Where-used Graph"/>
+<localVariables/>
+<variableMappings/>
+<dataSources>
+  <DataSource id="BWOBJECT_WHEREUSED">
+    <resourceUri>BWOBJECT_WHEREUSED</resourceUri>
+  </DataSource>
+  <DataSource id="RSO_ASC_TYPE">
+    <resourceUri>RSO_ASC_TYPE</resourceUri>
+  </DataSource>
+</dataSources>
+<calculationViews>
+  <calculationView xsi:type="Calculation:JoinView" id="Join_1" cardinality="CN_1" joinType="leftOuter">
+    <viewAttributes>
+      <viewAttribute id="ASC_TYPE"/>
+      <viewAttribute id="TLOGO"/>
+      <viewAttribute id="OBJNM"/>
+      <viewAttribute id="OBJVERS"/>
+      <viewAttribute id="TLOGO_DEP"/>
+      <viewAttribute id="OBJNM_DEP"/>
+      <viewAttribute id="ASC_DESC"/>
+    </viewAttributes>
+    <calculatedViewAttributes>
+      <calculatedViewAttribute id="ID" datatype="VARCHAR" length="200" expressionLanguage="SQL">
+        <formula>&quot;TLOGO&quot;||&quot;OBJNM&quot;||&quot;OBJVERS&quot;||&quot;ASC_TYPE&quot;||&quot;TLOGO_DEP&quot;||&quot;OBJNM_DEP&quot;</formula>
+      </calculatedViewAttribute>
+      <calculatedViewAttribute id="SOURCE" datatype="VARCHAR" length="100" expressionLanguage="SQL">
+        <formula>&quot;TLOGO&quot;||&quot;OBJNM&quot;||&quot;OBJVERS&quot;</formula>
+      </calculatedViewAttribute>
+      <calculatedViewAttribute id="TARGET" datatype="VARCHAR" length="100" expressionLanguage="SQL">
+        <formula>&quot;TLOGO_DEP&quot;||&quot;OBJNM_DEP&quot;||&quot;OBJVERS&quot;</formula>
+      </calculatedViewAttribute>
+    </calculatedViewAttributes>
+    <input node="BWOBJECT_WHEREUSED">
+      <mapping xsi:type="Calculation:AttributeMapping" target="ASC_TYPE" source="ASC_TYPE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TLOGO" source="TLOGO"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="OBJNM" source="OBJNM"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="OBJVERS" source="OBJVERS"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TLOGO_DEP" source="TLOGO_DEP"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="OBJNM_DEP" source="OBJNM_DEP"/>
+    </input>
+    <input node="RSO_ASC_TYPE">
+      <mapping xsi:type="Calculation:AttributeMapping" target="ASC_DESC" source="ASC_DESC"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ASC_TYPE" source="ASC_TYPE"/>
+    </input>
+    <joinAttribute name="ASC_TYPE"/>
+  </calculationView>
+</calculationViews>
+<logicalModel id="Join_1" filterExpressionLanguage="SQL">
+  <attributes>
+    <attribute id="ASC_TYPE" order="1" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Association type in BW Repository"/>
+      <keyMapping columnObjectName="Join_1" columnName="ASC_TYPE"/>
+    </attribute>
+    <attribute id="TLOGO" order="2" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="BW: Object Type (TLOGO)"/>
+      <keyMapping columnObjectName="Join_1" columnName="TLOGO"/>
+    </attribute>
+    <attribute id="OBJNM" order="3" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Object Name in Object Directory"/>
+      <keyMapping columnObjectName="Join_1" columnName="OBJNM"/>
+    </attribute>
+    <attribute id="OBJVERS" order="4" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Object version"/>
+      <keyMapping columnObjectName="Join_1" columnName="OBJVERS"/>
+    </attribute>
+    <attribute id="TLOGO_DEP" order="5" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Dependent Object Type"/>
+      <keyMapping columnObjectName="Join_1" columnName="TLOGO_DEP"/>
+    </attribute>
+    <attribute id="OBJNM_DEP" order="6" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Dependent Object Name in Object Directory"/>
+      <keyMapping columnObjectName="Join_1" columnName="OBJNM_DEP"/>
+    </attribute>
+    <attribute id="ASC_DESC" order="7" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Association type description"/>
+      <keyMapping columnObjectName="Join_1" columnName="ASC_DESC"/>
+    </attribute>
+    <attribute id="ID" order="8" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID"/>
+      <keyMapping columnObjectName="Join_1" columnName="ID"/>
+    </attribute>
+    <attribute id="SOURCE" order="9" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="SOURCE"/>
+      <keyMapping columnObjectName="Join_1" columnName="SOURCE"/>
+    </attribute>
+    <attribute id="TARGET" order="10" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="TARGET"/>
+      <keyMapping columnObjectName="Join_1" columnName="TARGET"/>
+    </attribute>
+  </attributes>
+  <calculatedAttributes/>
+  <baseMeasures/>
+  <calculatedMeasures/>
+  <restrictedMeasures/>
+
+  <filter>&quot;TLOGO&quot; &lt;&gt; 'IOBJ' and &quot;TLOGO_DEP&quot; &lt;&gt; 'IOBJ'</filter>
+</logicalModel>
+<layout>
+  <shapes>
+    <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+      <upperLeftCorner x="40" y="85"/>
+    </shape>
+  
+    <shape expanded="true" modelObjectName="Join_1" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="100" y="207"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape modelObjectName="BWOBJECT_WHEREUSED" modelObjectNameSpace="Join_1" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="20" y="30"/>
+      <rectangleSize width="217"/>
+    </shape>
+    <shape modelObjectName="RSO_ASC_TYPE" modelObjectNameSpace="Join_1" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="320" y="30"/>
+      <rectangleSize width="160"/>
+    </shape>
+  </shapes>
+</layout>
+</Calculation:scenario>

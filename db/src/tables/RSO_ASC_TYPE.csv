@@ -6,8 +6,39 @@ ASC_TYPE,ASC_DESC
 004,Sends data to
 005,Receives data from
 006,Is displayed in
+007,Cube contains InfoObject
+008,DSO contains InfoObject
+010,Cube(Hybrid) contains InfoObject
+013,HybridProvider contains Cube
+014,HybridProvider contains DSO
+015,MultiProvider contains InfoObject
+016,MultiProvider contains Cube
+017,MultiProvider contains DSO
+018,HybridProvider contains InfoObject
 020,Schedules
 021,Is scheduled by
+024,Receives data from InfoObject
+025,Receives data from InfoSource
+026,Receives data from DSO
+027,Receives data from Data Source
+028,Receives data from Cube
+031,Receives data from ADSO
+035,Sends data to InfoSource
+036,Sends data to InfoCube
+037,Sends data to DDSO
+038,Sends data to InfoObject
+041,Update Rule receives data from InfoSource
+042,InfoSource contains InfoObject
+043,Update Rule sends data to Cube
+044,Update Rule sends data to DSO
+055,Query based on InfoCube
+056,Query based on ADSO
+060,Query based on CompositeProvider
+061,Query based on HybridProvider
+062,Query based on InfoObject
+064,Query based on MultiProvider
+065,Query based on DSO
+068,Query element refers to InfoObject
 100,Is compounded to
 101,Has attribute
 102,Has navigation attribute

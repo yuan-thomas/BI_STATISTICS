@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" id="BWOBJECT_WHEREUSED_VERTEX" applyPrivilegeType="NONE" dataCategory="DIMENSION" dimensionType="STANDARD" schemaVersion="3.0" outputViewType="Projection" cacheInvalidationPeriod="NONE" enforceSqlExecution="false">
+<descriptions defaultDescription="Vertex table of Where-used Graph"/>
+<localVariables/>
+<variableMappings/>
+<dataSources>
+  <DataSource id="BWOBJECT_WHEREUSED">
+    <resourceUri>BWOBJECT_WHEREUSED</resourceUri>
+  </DataSource>
+  <DataSource id="BWOBJECT_WHEREUSED_1">
+    <resourceUri>BWOBJECT_WHEREUSED</resourceUri>
+  </DataSource>
+</dataSources>
+<calculationViews>
+  <calculationView xsi:type="Calculation:UnionView" id="Union_1">
+    <viewAttributes>
+      <viewAttribute id="TLOGO"/>
+      <viewAttribute id="OBJNM"/>
+      <viewAttribute id="OBJVERS"/>
+    </viewAttributes>
+    <calculatedViewAttributes>
+      <calculatedViewAttribute id="ID" datatype="VARCHAR" length="100" expressionLanguage="SQL">
+        <formula>&quot;TLOGO&quot;||&quot;OBJNM&quot;||&quot;OBJVERS&quot;</formula>
+      </calculatedViewAttribute>
+    </calculatedViewAttributes>
+    <input node="BWOBJECT_WHEREUSED" emptyUnionBehavior="NO_ROW">
+      <mapping xsi:type="Calculation:AttributeMapping" target="TLOGO" source="TLOGO"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="OBJNM" source="OBJNM"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="OBJVERS" source="OBJVERS"/>
+    </input>
+    <input node="BWOBJECT_WHEREUSED_1" emptyUnionBehavior="NO_ROW">
+      <mapping xsi:type="Calculation:AttributeMapping" target="TLOGO" source="TLOGO_DEP"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="OBJNM" source="OBJNM_DEP"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="OBJVERS" source="OBJVERS"/>
+    </input>
+  </calculationView>
+</calculationViews>
+<logicalModel id="Union_1" filterExpressionLanguage="SQL">
+  <attributes>
+    <attribute id="TLOGO" order="1" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="BW: Object Type (TLOGO)"/>
+      <keyMapping columnObjectName="Union_1" columnName="TLOGO"/>
+    </attribute>
+    <attribute id="OBJNM" order="2" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Object Name in Object Directory"/>
+      <keyMapping columnObjectName="Union_1" columnName="OBJNM"/>
+    </attribute>
+    <attribute id="OBJVERS" order="3" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Object version"/>
+      <keyMapping columnObjectName="Union_1" columnName="OBJVERS"/>
+    </attribute>
+    <attribute id="ID" order="4" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID"/>
+      <keyMapping columnObjectName="Union_1" columnName="ID"/>
+    </attribute>
+  </attributes>
+  <calculatedAttributes/>
+  <baseMeasures/>
+  <calculatedMeasures/>
+  <restrictedMeasures/>
+
+  <filter>&quot;TLOGO&quot; &lt;&gt; 'IOBJ'</filter>
+</logicalModel>
+<layout>
+  <shapes>
+    <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+      <upperLeftCorner x="40" y="85"/>
+    </shape>
+    <shape expanded="true" modelObjectName="Union_1" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="100" y="216"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+  </shapes>
+</layout>
+</Calculation:scenario>
