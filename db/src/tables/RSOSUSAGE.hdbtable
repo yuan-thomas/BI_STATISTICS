@@ -1,0 +1,5 @@
+COLUMN TABLE RSOSUSAGE
+(
+	ASC_TYPE VARCHAR(3) COMMENT 'Association type in BW Repository',
+	ASC_TXTLG VARCHAR(60) COMMENT 'Association type long description'
+)

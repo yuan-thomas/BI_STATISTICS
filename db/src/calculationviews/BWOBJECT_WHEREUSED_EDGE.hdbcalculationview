@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Calculation:scenario xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" id="BWOBJECT_WHEREUSED_EDGE" applyPrivilegeType="NONE" dataCategory="DIMENSION" dimensionType="STANDARD" schemaVersion="3.0" outputViewType="Projection" cacheInvalidationPeriod="NONE" enforceSqlExecution="false">
+<Calculation:scenario xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" id="BWOBJECT_WHEREUSED_EDGE" applyPrivilegeType="NONE" dataCategory="CUBE" dimensionType="STANDARD" schemaVersion="3.0" outputViewType="Aggregation" cacheInvalidationPeriod="NONE" enforceSqlExecution="false">
 <descriptions defaultDescription="Edge table of Where-used Graph"/>
 <localVariables/>
 <variableMappings/>
@@ -7,8 +7,8 @@
   <DataSource id="BWOBJECT_WHEREUSED">
     <resourceUri>BWOBJECT_WHEREUSED</resourceUri>
   </DataSource>
-  <DataSource id="RSO_ASC_TYPE">
-    <resourceUri>RSO_ASC_TYPE</resourceUri>
+  <DataSource id="RSOSUSAGE">
+    <resourceUri>RSOSUSAGE</resourceUri>
   </DataSource>
 </dataSources>
 <calculationViews>
@@ -20,7 +20,7 @@
       <viewAttribute id="OBJVERS"/>
       <viewAttribute id="TLOGO_DEP"/>
       <viewAttribute id="OBJNM_DEP"/>
-      <viewAttribute id="ASC_DESC"/>
+      <viewAttribute id="ASC_TXTLG"/>
     </viewAttributes>
     <calculatedViewAttributes>
       <calculatedViewAttribute id="ID" datatype="VARCHAR" length="200" expressionLanguage="SQL">
@@ -41,8 +41,8 @@
       <mapping xsi:type="Calculation:AttributeMapping" target="TLOGO_DEP" source="TLOGO_DEP"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="OBJNM_DEP" source="OBJNM_DEP"/>
     </input>
-    <input node="RSO_ASC_TYPE">
-      <mapping xsi:type="Calculation:AttributeMapping" target="ASC_DESC" source="ASC_DESC"/>
+    <input node="RSOSUSAGE">
+      <mapping xsi:type="Calculation:AttributeMapping" target="ASC_TXTLG" source="ASC_TXTLG"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="ASC_TYPE" source="ASC_TYPE"/>
     </input>
     <joinAttribute name="ASC_TYPE"/>
@@ -50,7 +50,7 @@
 </calculationViews>
 <logicalModel id="Join_1" filterExpressionLanguage="SQL">
   <attributes>
-    <attribute id="ASC_TYPE" order="1" displayAttribute="false" attributeHierarchyActive="false">
+    <attribute id="ASC_TYPE" order="1" displayAttribute="false" attributeHierarchyActive="false" descriptionColumnName="ASC_TXTLG">
       <descriptions defaultDescription="Association type in BW Repository"/>
       <keyMapping columnObjectName="Join_1" columnName="ASC_TYPE"/>
     </attribute>
@@ -74,29 +74,37 @@
       <descriptions defaultDescription="Dependent Object Name in Object Directory"/>
       <keyMapping columnObjectName="Join_1" columnName="OBJNM_DEP"/>
     </attribute>
-    <attribute id="ASC_DESC" order="7" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="Association type description"/>
-      <keyMapping columnObjectName="Join_1" columnName="ASC_DESC"/>
-    </attribute>
-    <attribute id="ID" order="8" displayAttribute="false" attributeHierarchyActive="false">
+    <attribute id="ID" order="7" displayAttribute="false" attributeHierarchyActive="false">
       <descriptions defaultDescription="ID"/>
       <keyMapping columnObjectName="Join_1" columnName="ID"/>
     </attribute>
-    <attribute id="SOURCE" order="9" displayAttribute="false" attributeHierarchyActive="false">
+    <attribute id="SOURCE" order="8" displayAttribute="false" attributeHierarchyActive="false">
       <descriptions defaultDescription="SOURCE"/>
       <keyMapping columnObjectName="Join_1" columnName="SOURCE"/>
     </attribute>
-    <attribute id="TARGET" order="10" displayAttribute="false" attributeHierarchyActive="false">
+    <attribute id="TARGET" order="9" displayAttribute="false" attributeHierarchyActive="false">
       <descriptions defaultDescription="TARGET"/>
       <keyMapping columnObjectName="Join_1" columnName="TARGET"/>
+    </attribute>
+  
+    <attribute id="ASC_TXTLG" order="10" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Association type long description"/>
+      <keyMapping columnObjectName="Join_1" columnName="ASC_TXTLG"/>
     </attribute>
   </attributes>
   <calculatedAttributes/>
   <baseMeasures/>
-  <calculatedMeasures/>
+  <calculatedMeasures>
+    <measure id="EDGE_COUNT" order="11" aggregationType="sum" measureType="simple" calculatedMeasureType="counter" aggregatable="true" datatype="BIGINT" length="">
+      <descriptions defaultDescription="EDGE_COUNT"/>
+      <exceptionAggregation>
+        <attribute attributeName="ID"/>
+      </exceptionAggregation>
+      <formula>1</formula>
+      </measure>
+  </calculatedMeasures>
   <restrictedMeasures/>
-
-  <filter>&quot;TLOGO&quot; &lt;&gt; 'IOBJ' and &quot;TLOGO_DEP&quot; &lt;&gt; 'IOBJ'</filter>
+  <localDimensions/>
 </logicalModel>
 <layout>
   <shapes>
@@ -112,9 +120,9 @@
       <upperLeftCorner x="20" y="30"/>
       <rectangleSize width="217"/>
     </shape>
-    <shape modelObjectName="RSO_ASC_TYPE" modelObjectNameSpace="Join_1" modelObjectType="JoinNodeInput">
-      <upperLeftCorner x="320" y="30"/>
-      <rectangleSize width="160"/>
+    <shape modelObjectName="RSOSUSAGE" modelObjectNameSpace="Join_1" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="620" y="30"/>
+      <rectangleSize width="150.79150390625"/>
     </shape>
   </shapes>
 </layout>

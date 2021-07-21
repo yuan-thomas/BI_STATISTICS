@@ -5,18 +5,18 @@
     {
      "column_mappings" : {
         "ASC_TYPE" : "ASC_TYPE",
-        "ASC_DESC" : "ASC_DESC"
+        "ASC_TXTLG" : "ASC_TXTLG"
      }, 
      "import_settings" : {
         "import_columns" : [ 
            "ASC_TYPE", 
-           "ASC_DESC"
+           "ASC_TXTLG"
         ]
      },
 
      "source_data" : { 
        "data_type" : "CSV", 
-       "file_name" : "RSO_ASC_TYPE.csv", 
+       "file_name" : "RSOSUSAGE.csv", 
        "has_header" : true,
        "no_data_import": false,
        "delete_existing_foreign_data": true,
@@ -25,7 +25,7 @@
           "delimiter" : "," 
         } 
       }, 
-     "target_table" : "RSO_ASC_TYPE"  
+     "target_table" : "RSOSUSAGE"  
     }
    ] 
 }
