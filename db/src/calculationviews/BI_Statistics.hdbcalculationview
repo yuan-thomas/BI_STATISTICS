@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Calculation:scenario xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" id="BI_Statistics" applyPrivilegeType="NONE" dataCategory="CUBE" schemaVersion="3.0" cacheInvalidationPeriod="NONE" enforceSqlExecution="false">
+<Calculation:scenario xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" id="BI_Statistics" applyPrivilegeType="NONE" dataCategory="CUBE" schemaVersion="3.0" cacheInvalidationPeriod="NONE" enforceSqlExecution="true">
 <descriptions defaultDescription="BI_Statistics"/>
 <localVariables/>
 <variableMappings/>
@@ -438,8 +438,7 @@
     <calculatedViewAttributes>
       <calculatedViewAttribute id="PARENT_INFOAREA" datatype="VARCHAR" length="50" expressionLanguage="SQL">
         <formula>IFNULL(&quot;CB_PAR_IA&quot;, 'INFOAREA_NOT_APPLICABLE')</formula>
-      </calculatedViewAttribute>
-    </calculatedViewAttributes>
+      </calculatedViewAttribute></calculatedViewAttributes>
     <input node="Union_1">
       <mapping xsi:type="Calculation:AttributeMapping" target="0TCTDMUID" source="0TCTDMUID"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="0TCTBWOBJCT" source="0TCTBWOBJCT"/>
@@ -685,7 +684,7 @@
       <keyCalculation datatype="DATE" expressionLanguage="SQL">
         <formula>TO_DATE(&quot;0CALDAY&quot;, 'YYYYMMDD')</formula>
       </keyCalculation>
-      </calculatedAttribute>
+    </calculatedAttribute>
   </calculatedAttributes>
   <baseMeasures>
     <measure id="0TCTNDBSEL" order="32" aggregationType="sum" measureType="simple" displayFolder="Data Manager">
