@@ -21,7 +21,10 @@ BEGIN
 	execute immediate 'select count(1) from ('||:sql_statement||')';
 
 	execute immediate :sql_statement;
-	
+
+--	Uncomment to create persisted table
+--	execute immediate 'create table <SCHEMA>.BWOBJECT_WHEREUSED AS ('||:sql_statement||')';
+
 END	
 
 */
