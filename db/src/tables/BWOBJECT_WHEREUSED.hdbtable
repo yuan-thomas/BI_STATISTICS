@@ -14,7 +14,7 @@ BEGIN
 	declare row_count INT;
 	declare sql_statement clob;
 	
-	view_list = select VIEW_NAME from SYS.VIEWS WHERE SCHEMA_NAME = '_SYS_BIC' AND VIEW_NAME LIKE 'system-local.bw.bwsearch.SAPHANADB.%.WHEREUSED/%' AND VIEW_TYPE = 'JOIN';
+	view_list = select VIEW_NAME from SYS.VIEWS WHERE SCHEMA_NAME = '_SYS_BIC' AND VIEW_NAME LIKE 'system-local.bw.bwsearch.SAPHANADB.%.WHEREUSED/%' AND VIEW_TYPE = 'JOIN' AND IS_VALID = 'TRUE';
 
 	select string_agg( '( SELECT ASC_TYPE, OBJVERS, TLOGO, OBJNM, TLOGO_DEP, OBJNM_DEP FROM "_SYS_BIC"."' || VIEW_NAME || '")', ' UNION ALL ' ) into sql_statement FROM :view_list;
 	
